@@ -8,7 +8,8 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     username = db.Column(db.String(80), unique=True, nullable=False)
     description = db.Column(db.String(80), unique=True, nullable=False)
-    
+    characters = db.relationship('Characters', backref='user')
+    planets = db.relationship('Planets', backref='user')
       
 
     def __repr__(self):
