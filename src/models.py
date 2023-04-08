@@ -33,8 +33,6 @@ class Characters(db.Model):
     eye_color = db.Column(db.String(120), unique=False, nullable=False)
     birth_year = db.Column(db.String(120), unique=False, nullable=False)
     gender = db.Column(db.String(120), unique=False, nullable=False)
-    planets = db.relationship('Planets')
-    favorites = db.relationship('Favorites')
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     
     def __repr__(self):
@@ -66,8 +64,6 @@ class Planets(db.Model):
     terrain = db.Column(db.String(120), unique=False, nullable=False)
     surface_water = db.Column(db.String(120), unique=False, nullable=False)
     population = db.Column(db.String(120), unique=False, nullable=False)
-    characters = db.relationship('Characters')
-    favorites = db.relationship('Favorites')
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     
     def __repr__(self):
